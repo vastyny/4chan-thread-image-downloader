@@ -7,7 +7,7 @@ from bs4 import BeautifulSoup
 thread_url = input('put the link of the thread')
 if not thread_url:
     exit()
-output_folder= input('name of the folder')
+output_folder= input('name of the folder that u gonna make')
 if not output_folder:
     output_folder='thread'
 var = 0
