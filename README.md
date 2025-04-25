@@ -1,4 +1,5 @@
-!!!WARNING!!! not working right now, trying to fix, so do not download it right now
+!!!WARNING!!! not working right now, trying to fix, so do not download it right now, old readme:
+
 so
 how this works?
 open the app
