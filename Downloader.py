@@ -1,6 +1,6 @@
 import os
 import requests
-import cloudscraper
+import cloudscraper#since cloudflare, we use cloudscraper
 from tkinter import filedialog
 from bs4 import BeautifulSoup
 
@@ -40,7 +40,7 @@ except FileExistsError:
 except Exception as e:
     print(f'error = {e}')
 
-#get the link and the html
+#get the html from the link
 try:
     response = scraper.get(thread_url)
 except requests.exceptions.ConnectionError as E:
@@ -55,13 +55,13 @@ if response.status_code != 200:
 #image getter, create a bs4 object
 soup = BeautifulSoup(response.text, 'html.parser')
 #find all ocurrence of tag, a hlink(hyperlink), to download after, for every link
-images = soup.find_all('a', class_='fileThumb')
+images = soup.find_all('a', class_='fileThumb')#get's the anchor of the hyperlink of the image, to check the class u need to go to the site, press f12 and use the mouse icon to see
 if not images:
     print('not images found')
 for image in images:
     #yeah
-    image_url = 'https:' + image['href']
-    image_name = os.path.basename(image_url)
+    image_url = 'https:' + image['href']#get's the real image"
+    image_name = os.path.basename(image_url)#gets the number
     image_path = os.path.join(new_path, image_name)
     print(f'downloading {image_url}...')
     image_response = requests.get(image_url)
